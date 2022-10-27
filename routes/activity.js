@@ -21,9 +21,9 @@ exports.execute = async (req, res) => {
       configFinishTime = data.inArguments[0].BlackoutFinishTime;
   
   let dates = dateTime.getNextTriggerDate(configLocale,configStartTime,configFinishTime),
-      startDate = dates.startDtObj.toISO(),
-      endDate = dates.endDtObj.toISO(),
-      nextDate = dates.nextDtObj.toISO();
+      startDate = dates.startDtObj.toISO().toLocaleString('en-US', {timeZone: 'CST',}),
+      endDate = dates.endDtObj.toISO().toLocaleString('en-US', {timeZone: 'CST',}),
+      nextDate = dates.nextDtObj.toISO().toLocaleString('en-US', {timeZone: 'CST',});
 
   console.log('Start Date Objs: ', startDate, '; End Date Objs',  endDate, '; Next Date Objs', nextDate);
 
@@ -43,14 +43,15 @@ exports.execute = async (req, res) => {
           NextDate: nextDate
         },
       },
-    ]);
+    ]).then(() =>{
+      res.status(200).send({
+        status: 'ok',
+      });
+    });
   } catch (error) {
     logger.error(error);
   }
 
-  res.status(200).send({
-    status: 'ok',
-  });
 };
 
 /**
