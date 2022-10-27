@@ -30,8 +30,6 @@ exports.execute = async (req, res) => {
   try {
     const id = Uuidv1();
 
-    const;
-
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
@@ -48,8 +46,8 @@ exports.execute = async (req, res) => {
     ]).then(() =>{
       setTimeout(() => {
         console.log('Send Response');
-        res.status(200).send({
-          status: 'ok',
+        res.status(404).send({
+          status: 'Error',
         });
       }, 3000)
     });
