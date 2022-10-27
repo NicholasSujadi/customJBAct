@@ -44,9 +44,11 @@ exports.execute = async (req, res) => {
         },
       },
     ]).then(() =>{
-      res.status(200).send({
-        status: 'ok',
-      });
+      setTimeout(() => {
+        res.status(200).send({
+          status: 'ok',
+        });
+      }, 3000)
     });
   } catch (error) {
     logger.error(error);
