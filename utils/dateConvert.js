@@ -18,11 +18,13 @@ const getNextTriggerDate = (locale, start, end) => {
         startMinute = start.split(":")[1],
         endHour = end.split(":")[0],
         endMinute = end.split(":")[1];
-    
+        
+        console.log('startDay: ', startDay);
         console.log('startHour: ', startHour);
         console.log('startMinute: ', startMinute);
         console.log('endHour: ', endHour);
         console.log('endMinute: ', endMinute);
+        
 
         //if endhour is equal to start hour and end minute is less than start minute, set date as the next day
         //or if end hour is less than start hour, set date as the next day
@@ -31,9 +33,11 @@ const getNextTriggerDate = (locale, start, end) => {
         if(endHour < startHour || (endHour == startHour && endMinute <= startMinute)){
             //console.log('end time is less than start time, setting end date as the next day')
             endDay = DateTime.local().setZone(locale).plus({days: 1}).toFormat("dd")
+            console.log('endDay: ', endDay)
         } else {
             //console.log('end time is greater than start time, setting end date as the same day')
             endDay = startDay
+            console.log('endDay: ', endDay)
         }
 
     //build the start date object using current date
@@ -85,14 +89,14 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
             //console.log('current date is between start and end time')
             let nextDtObj = endDtObj.plus({minutes: 1}).setZone(locale);
             //console.log('Next DateTime: ', nextDtObj.toISO())
-    
+            console.log('nextDtObj', nextDtObj);
             return nextDtObj
         } else {
 
             //console.log('current date is not between start and end time')
             let nextDtObj = currentDtObj.plus({minutes: 1}).setZone(locale);
             //console.log('Next DateTime: ', nextDtObj.toISO())
-    
+            console.log('nextDtObj', nextDtObj);
             return nextDtObj
         }
     }
