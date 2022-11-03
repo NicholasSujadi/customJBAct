@@ -18,6 +18,11 @@ const getNextTriggerDate = (locale, start, end) => {
         startMinute = start.split(":")[1],
         endHour = end.split(":")[0],
         endMinute = end.split(":")[1];
+    
+        console.log('startHour: ', startHour);
+        console.log('startMinute: ', startMinute);
+        console.log('endHour: ', endHour);
+        console.log('endMinute: ', endMinute);
 
         //if endhour is equal to start hour and end minute is less than start minute, set date as the next day
         //or if end hour is less than start hour, set date as the next day
