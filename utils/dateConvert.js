@@ -89,14 +89,14 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         if(currentDtObj >= startDtObj && currentDtObj <= endDtObj){
 
             //console.log('current date is between start and end time')
-            let nextDtObj = endDtObj.plus({minutes: 1}).setZone(locale);
+            let nextDtObj = endDtObj.plus({minutes: 2}).setZone(locale);
             //console.log('Next DateTime: ', nextDtObj.toISO())
             console.log('nextDtObj', nextDtObj);
             return nextDtObj
         } else {
 
             //console.log('current date is not between start and end time')
-            let nextDtObj = currentDtObj.plus({minutes: 1}).setZone(locale);
+            let nextDtObj = currentDtObj.plus({minutes: 2}).setZone(locale);
             //console.log('Next DateTime: ', nextDtObj.toISO())
             console.log('nextDtObj', nextDtObj);
             return nextDtObj
