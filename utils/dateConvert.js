@@ -79,6 +79,8 @@ const checkDateBetweenTime = (locale, startDtObj, endDtObj) => {
         //create a current date object with locale
         //configured through journey builder
         let currentDtObj = DateTime.local().setZone(locale);
+        
+        console.log('currentDtObj: ', currentDtObj);
 
         //if current date is between startDtObj and endDtObj
         //set nextDtObj as endDtObj + 1 minute
