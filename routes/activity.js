@@ -38,7 +38,8 @@ exports.execute = async (req, res) => {
         values: {
           StartDate: startDate,
           EndDate: endDate,
-          NextDate: nextDate
+          NextDate: nextDate,
+          Timezone: data.inArguments[0].timeZone
         },
       },
     ]).then(() =>{
