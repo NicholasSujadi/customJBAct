@@ -33,13 +33,11 @@ exports.execute = async (req, res) => {
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
-          Id: id,
           SubscriberKey: data.inArguments[0].contactKey,
         },
         values: {
-          TimeZone: configLocale,
-          StartTime: configStartTime,
-          EndTime: configFinishTime,
+          StartDate: startDate,
+          EndDate: endDate,
           NextDate: nextDate
         },
       },
