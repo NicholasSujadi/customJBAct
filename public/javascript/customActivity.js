@@ -122,7 +122,7 @@ function save() {
         payload['arguments'].execute.inArguments = [
             {
                 "contactKey": "{{Contact.Key}}",
-                "timeZone": "{{Event.DEAudience-79487035-ED9A-4D52-A160-BCB682E48814.'TimeZone'}}"
+                "timeZone": "{{Event.DEAudience-c7161af2-355b-175e-29a1-2ef6ad66cb03.'TimeZone'}}"
             }
         ];
 
