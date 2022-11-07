@@ -16,7 +16,7 @@ exports.execute = async (req, res) => {
   const data = JWT(req.body);
   logger.info(data);
   
-  let configLocale = data.inArguments[0].TimeZoneOptions,
+  let configLocale = data.inArguments[0].timeZone //data.inArguments[0].TimeZoneOptions,
       configStartTime = data.inArguments[0].BlackoutStartTime,
       configFinishTime = data.inArguments[0].BlackoutFinishTime;
   
