@@ -16,7 +16,7 @@ exports.execute = async (req, res) => {
   const data = JWT(req.body);
   logger.info(data);
   
-  let configLocale = data.inArguments[0].TimeZoneOptions,
+  let configLocale = data.inArguments[0].timeZone //data.inArguments[0].TimeZoneOptions,
       configStartTime = data.inArguments[0].BlackoutStartTime,
       configFinishTime = data.inArguments[0].BlackoutFinishTime;
   
@@ -33,14 +33,13 @@ exports.execute = async (req, res) => {
     await SFClient.saveData(process.env.DATA_EXTENSION_EXTERNAL_KEY, [
       {
         keys: {
-          Id: id,
           SubscriberKey: data.inArguments[0].contactKey,
         },
         values: {
-          TimeZone: configLocale,
-          StartTime: configStartTime,
-          EndTime: configFinishTime,
-          NextDate: nextDate
+          StartDate: startDate,
+          EndDate: endDate,
+          NextDate: nextDate,
+          Timezone: data.inArguments[0].timeZone
         },
       },
     ]).then(() =>{

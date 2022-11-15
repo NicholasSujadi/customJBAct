@@ -121,7 +121,8 @@ function save() {
 
         payload['arguments'].execute.inArguments = [
             {
-                "contactKey": "{{Contact.Key}}"
+                "contactKey": "{{Contact.Key}}",
+                "timeZone": "{{Event.DEAudience-c7161af2-355b-175e-29a1-2ef6ad66cb03.TimeZone}}"                
             }
         ];
 
